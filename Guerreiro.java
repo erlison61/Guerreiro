@@ -58,7 +58,6 @@ public class Guerreiro {
     public void lutar(Guerreiro oponente) {
         if (atacar() == 1) {
             oponente.decremento();
-
         } else if (oponente.atacar() == 1) {
             decremento();
         }
@@ -66,17 +65,15 @@ public class Guerreiro {
     }
 
     public void lutarLaco(Guerreiro oponente) {
-
+        while (oponente.getEnergia() != 0 && getEnergia()!=0) {
+                lutar(oponente);          
+        }
         if (oponente.getEnergia() == 0) {
             System.out.println("o vencedor foi:"+getNome());
         } else if (getEnergia() == 0) {
             System.out.println("vencedor foi:" + oponente.getNome());
-        } else {
-            while (oponente.getEnergia() != 0 && getEnergia()!=0) {
-                lutar(oponente);
-            }
-        }
-
+        } 
+  
     }
     
     public void lutarRecursivo(Guerreiro oponente){
